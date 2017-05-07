@@ -1,15 +1,19 @@
 package com.cth.test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class LongestCommonSubstirng {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String str1 = new String("123456abcd567");
 		String str2 = new String("234dddabc45678");
-		System.out.println(LongestCommonSubstirng(str1.toCharArray(), str2.toCharArray()));
+		System.out.println(LongestCommonSubstirng1(str1.toCharArray(), str2.toCharArray()));
+		System.out.println(LongestCommonSubstirng2(str1.toCharArray(), str2.toCharArray()));
 	}
 
-	public static int LongestCommonSubstirng(char[] cs, char[] cs2) {
+	public static int LongestCommonSubstirng1(char[] cs, char[] cs2) {
 		if (cs.length == 0 || cs2.length == 0) {
 			return 0;
 		}
@@ -50,10 +54,10 @@ public class LongestCommonSubstirng {
 		}
 		int[] dp = new int[cs2.length];
 		int max = 0;
-		int[] maxindex = new int[cs2.length];
+		List<Integer> maxindex = new LinkedList<>();
 		int maxcount = -1;
 		for (int i = 0; i < cs.length; i++) {
-			for (int j = i + 1; j < cs2.length; j++) {
+			for (int j = cs2.length - 1; j >= 0; j--) {
 				if (cs[i] == cs2[j]) {
 					if (j > 0) {
 						dp[j] = dp[j - 1] + 1;
@@ -63,21 +67,23 @@ public class LongestCommonSubstirng {
 				} else {
 					dp[j] = 0;
 				}
+
 				if (dp[j] > max) {
 					max = dp[j];
 					maxcount = 0;
-					maxindex[maxcount] = j;
+					maxindex.clear();
+					maxindex.add(j);
 				} else if (dp[j] == max) {
 					maxcount++;
-					maxindex[maxcount] = j;
+					maxindex.add(j);
 				}
 			}
 		}
 		for (int j = 0; j <= maxcount; j++) {
-				for (int k = max - 1; k >= 0; k--) {
-					System.out.print(cs2[maxindex[j] - k]);
-				}
-				System.out.println();
+			for (int i = max-1; i >=0; i--) {
+				System.out.print(cs2[maxindex.get(j)-i]);
+			}
+			System.out.println();
 		}
 		return max;
 	}
