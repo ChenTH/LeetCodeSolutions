@@ -1,51 +1,27 @@
 package com.cth.test;
-import java.util.Scanner;
-/**
- * Created by SherlockTHao on 2017/3/23.
- */
-public class solution {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int m = sc.nextInt();
-            int k = sc.nextInt();
-            int result=0;
-            char[] a=new char[n];
-            for(int i=0;i<n;i++){
-                a[i]='A';
-            }
 
-            System.out.println();
-        }
-        public static boolean addOne(char[] a){
-            int i=a.length-1;
-            int pre=0;
-            while (i>=0){
-                if(pre==0){
-                    if(a[i]!='Z'){
-                        a[i]+=1;
-                    }
-                    else {
-                        pre=1;
-                        a[i]='A';
-                    }
-                }
-                else {
-                    if(a[i]!='Z'){
-                        a[i]+=1;
-                        break;
-                    }
-                    else {
-                        pre=1;
-                        a[i]='A';
-                    }
-                }
-            }
-            if(pre==1 && i<0){
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
-    }
+
+public class solution {
+	public static void main(String[] args) {
+		int[] a={0,0,0};
+		int[] b={0,0,5};
+		int[] c={0,5,0};
+		System.out.println(calculateArea(a,b,c));
+	}
+	public static  String calculateArea(int[] a,int[] b,int[] c) {
+		double ab=calculateLength(a, b);
+		double bc=calculateLength(b, c);
+		double ac=calculateLength(a, c);
+		double p=(ab+bc+ac)/2;
+//		return Math.sqrt(p*(p-ab)*(p-bc)*(p-ac))
+		java.text.DecimalFormat   df=new  java.text.DecimalFormat("0.00000");
+		return df.format(Math.sqrt(p*(p-ab)*(p-bc)*(p-ac)));
+	}
+	public static double calculateLength(int[] a,int[] b) {	
+		int temp=0;
+		for(int i=0;i<a.length;i++){
+			temp+=Math.pow((a[i]-b[i]),2);
+		}
+		return Math.sqrt(temp);
+	}
+}
