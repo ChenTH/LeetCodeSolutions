@@ -1,4 +1,4 @@
-package com.cth.test.Thread;
+package com.cth.test.Thread.Lock;
 
 /**
  * Created by SherlockTHao on 2017/5/26.

@@ -1,4 +1,4 @@
-package com.cth.test.Thread;
+package com.cth.test.Thread.Lock;
 
 import java.util.concurrent.atomic.AtomicReference;
 

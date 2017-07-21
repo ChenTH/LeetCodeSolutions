@@ -1,15 +1,10 @@
-package com.cth.test.Thread;
+package com.cth.test.Thread.Lock;
 
 /**
  * Created by SherlockTHao on 2017/5/26.
  */
-
-import java.util.concurrent.locks.LockSupport;
-import java.util.concurrent.locks.ReentrantLock;
-
-public class LocksupportTest {
+public class SuspendTest {
     static Object u = new Object();
-    static ReentrantLock lock=new ReentrantLock();
     static TestSuspendThread t1 = new TestSuspendThread("t1");
     static TestSuspendThread t2 = new TestSuspendThread("t2");
 
@@ -20,12 +15,11 @@ public class LocksupportTest {
 
         @Override
         public void run() {
-            lock.lock();
+            synchronized (u) {
                 System.out.println("in " + getName());
-                //Thread.currentThread().suspend();
-                LockSupport.park();
-                System.out.println("out " + getName());
-            lock.unlock();
+                Thread.currentThread().suspend();
+                System.out.println("out "+getName());
+            }
         }
     }
 
@@ -33,8 +27,8 @@ public class LocksupportTest {
         t1.start();
         Thread.sleep(100);
         t2.start();
-        LockSupport.unpark(t1);
-        LockSupport.unpark(t2);
+        t1.resume();
+        t2.resume();
         t1.join();
         t2.join();
     }
