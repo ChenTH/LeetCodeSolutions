@@ -1,4 +1,4 @@
-package com.cth.decode.tree.Easy;
+package com.cth.decode.tree.util;
 
 public class TreeNode {
 	public int val;

@@ -1,5 +1,7 @@
 package com.cth.decode.tree.Easy;
 
+import com.cth.decode.tree.util.TreeNode;
+
 public class SameTree {
 
 	public static void main(String[] args) {

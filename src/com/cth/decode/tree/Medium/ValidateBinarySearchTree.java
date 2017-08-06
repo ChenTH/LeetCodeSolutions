@@ -1,6 +1,6 @@
 package com.cth.decode.tree.Medium;
 
-import com.cth.decode.tree.Easy.TreeNode;
+import com.cth.decode.tree.util.TreeNode;
 
 /**
  * Created by SherlockTHao on 2017/5/20.

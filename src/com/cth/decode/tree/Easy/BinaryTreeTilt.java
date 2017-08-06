@@ -1,5 +1,7 @@
 package com.cth.decode.tree.Easy;
 
+import com.cth.decode.tree.util.TreeNode;
+
 /**
  * Created by SherlockTHao on 2017/5/17.
  */

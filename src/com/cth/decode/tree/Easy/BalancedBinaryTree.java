@@ -1,5 +1,7 @@
 package com.cth.decode.tree.Easy;
 
+import com.cth.decode.tree.util.TreeNode;
+
 public class BalancedBinaryTree {
 	public boolean flag =true;
 	public static void main(String[] args) {
