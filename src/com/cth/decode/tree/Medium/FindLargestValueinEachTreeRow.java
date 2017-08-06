@@ -1,6 +1,6 @@
 package com.cth.decode.tree.Medium;
 
-import com.cth.decode.tree.TreeNode;
+import com.cth.decode.tree.Easy.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

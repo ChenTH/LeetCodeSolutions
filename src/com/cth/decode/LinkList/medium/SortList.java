@@ -1,7 +1,5 @@
 package com.cth.decode.LinkList.medium;
 
-import com.cth.decode.array.MergeSortedArray;
-
 public class SortList {
 
 	public static void main(String[] args) {
