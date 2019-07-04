@@ -6,7 +6,7 @@ import java.util.*;
  * Created by SherlockTHao on 2017/8/25.
  */
 public class problem2 {
-//    public static HashMap<String,List<UnilateralLine>> lineMap=new HashMap<>();
+    //    public static HashMap<String,List<UnilateralLine>> lineMap=new HashMap<>();
 //    publci static Set<String> used=new HashSet<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -30,75 +30,76 @@ public class problem2 {
 
     public static List<String> calculateUnilateral(List<UnilateralLine> lineList) {
         List<String> result = new ArrayList<String>();
-        Set<String> used=new HashSet<>();
-        role1Calculate(lineList,result,used);
+        Set<String> used = new HashSet<>();
+        role1Calculate(lineList, result, used);
         return result;
     }
-    public static void role1Calculate(List<UnilateralLine> lineList,List<String> result,Set<String> used){//ÕÒ³öµÚÒ»ÖÖ½â¾ö°ì·¨²¢½â¾ö
-        HashMap<String,List<UnilateralLine>> map=new HashMap<>();
-        for(UnilateralLine u:lineList){
-            List<UnilateralLine> list=map.getOrDefault(u.getSCen()+','+u.getECen(),new LinkedList<>());
+
+    public static void role1Calculate(List<UnilateralLine> lineList, List<String> result, Set<String> used) {//ï¿½Ò³ï¿½ï¿½ï¿½Ò»ï¿½Ö½ï¿½ï¿½ï¿½ì·¨ï¿½ï¿½ï¿½ï¿½ï¿½
+        HashMap<String, List<UnilateralLine>> map = new HashMap<>();
+        for (UnilateralLine u : lineList) {
+            List<UnilateralLine> list = map.getOrDefault(u.getSCen() + ',' + u.getECen(), new LinkedList<>());
             list.add(u);
-            map.put(u.getSCen()+','+u.getECen(),list);
+            map.put(u.getSCen() + ',' + u.getECen(), list);
         }
-        for(String line:map.keySet()){
-            for(UnilateralLine u: map.get(line)){
-                if(!used.contains(u.getId())){
-                    List<UnilateralLine> list=map.get(u.getECen()+','+u.getSCen());//ÕÒµ½·µ»ØµÄÏßÂ·ÁÐ±í
-                    if(list!=null){
-                            if(u.getTType().equals("9.6m")){
-                                for(UnilateralLine ret:list){
-                                    if(!used.contains(ret.getId())){
-                                        if(ret.getTType().equals("9.6m")){//Èç¹ûÕÒµ½ÁË9.6µÄ·µ»Ø
-                                            used.add(u.getId());
-                                            used.add(ret.getId());
-                                            result.add("rule1£º"+u.getId()+"+"+ret.getId());
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-                                int smallCount=0;
-                                String[] smallId=new String[2];
-                                for(UnilateralLine ret:list){
-                                    if(used.contains(ret.getId())){
-                                        if(ret.getTType().equals("9.6m")){//Èç¹ûÕÒµ½ÁËÁ½¸ö9.6·µ»Ø
-                                            smallId[smallCount]=ret.getId();
-                                            smallCount++;
-                                        }
-                                        else{//Èç¹ûÕÒµ½ÁË17.5·µ»Ø
-                                            used.add(u.getId());
-                                            used.add(ret.getId());
-                                            result.add("rule1£º"+u.getId()+"+"+ret.getId());
-                                            break;
-                                        }
-                                    }
-                                    if(smallCount==2){
+        for (String line : map.keySet()) {
+            for (UnilateralLine u : map.get(line)) {
+                if (!used.contains(u.getId())) {
+                    List<UnilateralLine> list = map.get(u.getECen() + ',' + u.getSCen());//ï¿½Òµï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½Â·ï¿½Ð±ï¿½
+                    if (list != null) {
+                        if (u.getTType().equals("9.6m")) {
+                            for (UnilateralLine ret : list) {
+                                if (!used.contains(ret.getId())) {
+                                    if (ret.getTType().equals("9.6m")) {//ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½9.6ï¿½Ä·ï¿½ï¿½ï¿½
                                         used.add(u.getId());
-                                        used.add(smallId[0]);
-                                        used.add(smallId[1]);
-                                        result.add("rule1£º"+u.getId()+"+"+smallId[0]+"+"+smallId[1]);
+                                        used.add(ret.getId());
+                                        result.add("rule1ï¿½ï¿½" + u.getId() + "+" + ret.getId());
                                         break;
                                     }
                                 }
                             }
+                        } else {
+                            int smallCount = 0;
+                            String[] smallId = new String[2];
+                            for (UnilateralLine ret : list) {
+                                if (used.contains(ret.getId())) {
+                                    if (ret.getTType().equals("9.6m")) {//ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½9.6ï¿½ï¿½ï¿½ï¿½
+                                        smallId[smallCount] = ret.getId();
+                                        smallCount++;
+                                    } else {//ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½17.5ï¿½ï¿½ï¿½ï¿½
+                                        used.add(u.getId());
+                                        used.add(ret.getId());
+                                        result.add("rule1ï¿½ï¿½" + u.getId() + "+" + ret.getId());
+                                        break;
+                                    }
+                                }
+                                if (smallCount == 2) {
+                                    used.add(u.getId());
+                                    used.add(smallId[0]);
+                                    used.add(smallId[1]);
+                                    result.add("rule1ï¿½ï¿½" + u.getId() + "+" + smallId[0] + "+" + smallId[1]);
+                                    break;
+                                }
+                            }
+                        }
 
                     }
                 }
             }
         }
     }
-    public static void role3Calculate(List<UnilateralLine> lineList,List<String> result,Set<String> used){//ÕÒ³öµÚ¶þÖÖ½â¾ö°ì·¨²¢½â¾ö
-        //todo Î´Íê³É
-        HashMap<String,List<UnilateralLine>> map=new HashMap<>();
-        for(UnilateralLine u:lineList){
-            List<UnilateralLine> list=map.getOrDefault(u.getSCen()+','+u.getECen(),new LinkedList<>());
+
+    public static void role3Calculate(List<UnilateralLine> lineList, List<String> result, Set<String> used) {//ï¿½Ò³ï¿½ï¿½Ú¶ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ì·¨ï¿½ï¿½ï¿½ï¿½ï¿½
+        //todo Î´ï¿½ï¿½ï¿½
+        HashMap<String, List<UnilateralLine>> map = new HashMap<>();
+        for (UnilateralLine u : lineList) {
+            List<UnilateralLine> list = map.getOrDefault(u.getSCen() + ',' + u.getECen(), new LinkedList<>());
             list.add(u);
-            map.put(u.getSCen()+','+u.getECen(),list);
+            map.put(u.getSCen() + ',' + u.getECen(), list);
         }
     }
-//    public static int[] getTargetLine(List<UnilateralLine> lineList,List<String> result,Set<String> used){
+
+    //    public static int[] getTargetLine(List<UnilateralLine> lineList,List<String> result,Set<String> used){
 //        HashMap<String,List<UnilateralLine>> map=new HashMap<>();
 //
 //    }
@@ -111,12 +112,12 @@ public class problem2 {
 //    }
     public static class UnilateralLine {
         private String id;
-        private String sCen;//³ö·¢·Ö²¦
-        private String sPro;//³ö·¢Ê¡
-        private String eCen;//µ½´ï·Ö²¦
-        private String ePro;//µ½´ïÊ¡
+        private String sCen;//ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½
+        private String sPro;//ï¿½ï¿½ï¿½ï¿½Ê¡
+        private String eCen;//ï¿½ï¿½ï¿½ï¿½Ö²ï¿½
+        private String ePro;//ï¿½ï¿½ï¿½ï¿½Ê¡
         //9.6m/17.5m
-        private String tType;//³µÐÍ
+        private String tType;//ï¿½ï¿½ï¿½ï¿½
 
 
         public UnilateralLine(String id, String sCen, String sPro, String eCen, String ePro, String tType) {

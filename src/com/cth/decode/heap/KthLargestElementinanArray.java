@@ -3,10 +3,11 @@ package com.cth.decode.heap;
 import java.util.Arrays;
 
 public class KthLargestElementinanArray {
-	public static void mian(String[] args) {
-		
-	}
-//    public int findKthLargest(int[] nums, int k) {
+    public static void mian(String[] args) {
+
+    }
+
+    //    public int findKthLargest(int[] nums, int k) {
 //    	int[] heap=new int[k];
 //    	
 //		return heap[0];
@@ -26,7 +27,7 @@ public class KthLargestElementinanArray {
 //    public void adjustHeap(int[] heap) {
 //		
 //	}
-	  public int findKthLargest(int[] nums, int k) {
-		  return 0;
-	}
+    public int findKthLargest(int[] nums, int k) {
+        return 0;
+    }
 }

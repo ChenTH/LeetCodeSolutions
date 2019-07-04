@@ -12,7 +12,7 @@ public class ThirdMaximumNumber {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        int[] a = {3,2,1};
+        int[] a = {3, 2, 1};
 
         System.out.print(thirdMax2(a));
     }
@@ -111,16 +111,17 @@ public class ThirdMaximumNumber {
         Integer[] res = {null, null, null};
         for (int n : nums) {
             if (res[0] == null || n >= res[0]) {
-                if(res[0] != null && n==res[0]) continue;
+                if (res[0] != null && n == res[0]) continue;
                 res[2] = res[1];
                 res[1] = res[0];
                 res[0] = n;
             } else if (res[1] == null || n >= res[1]) {
-                if(res[1] != null &&n==res[1]) continue;
+                if (res[1] != null && n == res[1]) continue;
                 res[2] = res[1];
                 res[1] = n;
             } else if (res[2] == null || n >= res[2]) {
-                if(res[2] != null &&n==res[2]) continue;;
+                if (res[2] != null && n == res[2]) continue;
+                ;
                 res[2] = n;
             }
         }

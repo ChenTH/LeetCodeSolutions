@@ -21,32 +21,32 @@ public class FindModeinBinarySearchTree {
     }
 
     public static int[] findMode(TreeNode root) {
-        Map<Integer,Integer> map=new HashMap<>();
-        calMode(root,map);
-        List<Integer> list=new ArrayList<>();
-        int max=0;
-        for(Integer i:map.keySet()){
-            int count=map.get(i);
-            if(count>max) {
+        Map<Integer, Integer> map = new HashMap<>();
+        calMode(root, map);
+        List<Integer> list = new ArrayList<>();
+        int max = 0;
+        for (Integer i : map.keySet()) {
+            int count = map.get(i);
+            if (count > max) {
                 list.clear();
                 list.add(i);
-                max=count;
-            }
-            else if(count==max){
+                max = count;
+            } else if (count == max) {
                 list.add(i);
             }
         }
-        int[] res=new int[list.size()];
-        for(int i=0;i<list.size();i++){
-            res[i]=list.get(i);
+        int[] res = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            res[i] = list.get(i);
         }
         return res;
     }
-    public static void calMode(TreeNode node,Map<Integer,Integer> map){
-        if(node==null)return;
-        map.put(node.val,map.getOrDefault(node.val,0)+1);
-        calMode(node.left,map);
-        calMode(node.right,map);
+
+    public static void calMode(TreeNode node, Map<Integer, Integer> map) {
+        if (node == null) return;
+        map.put(node.val, map.getOrDefault(node.val, 0) + 1);
+        calMode(node.left, map);
+        calMode(node.right, map);
     }
 //    public static int[] findMode(TreeNode root) {
 //        List<Integer> list=new ArrayList<>();

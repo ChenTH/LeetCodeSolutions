@@ -9,16 +9,16 @@ import java.util.Stack;
  * Created by SherlockTHao on 2017/8/6.
  */
 public class LargestRectangleinHistogram {
-    //TLEËã·¨
+    //TLEï¿½ã·¨
     public static int largestRectangleArea(int[] heights) {
-        Set<Integer> set=new HashSet<>();
+        Set<Integer> set = new HashSet<>();
         for (int i = 0; i < heights.length; i++) {
             set.add(heights[i]);
         }
         int res = 0;
-        Iterator<Integer> iter=set.iterator();
-        while (iter.hasNext()){
-            int i=iter.next();
+        Iterator<Integer> iter = set.iterator();
+        while (iter.hasNext()) {
+            int i = iter.next();
             int count = 0, maxCount = 0;
             for (int j = 0; j < heights.length; j++) {
                 if (heights[j] >= i) {
@@ -39,16 +39,17 @@ public class LargestRectangleinHistogram {
         }
         return res;
     }
-    //discuessÖÐËã·¨
+
+    //discuessï¿½ï¿½ï¿½ã·¨
     public static int largestRectangleArea2(int[] height) {
         int len = height.length;
         Stack<Integer> s = new Stack<Integer>();
         int maxArea = 0;
-        for(int i = 0; i <= len; i++){
+        for (int i = 0; i <= len; i++) {
             int h = (i == len ? 0 : height[i]);
-            if(s.isEmpty() || h >= height[s.peek()]){
+            if (s.isEmpty() || h >= height[s.peek()]) {
                 s.push(i);
-            }else{
+            } else {
                 int tp = s.pop();
                 maxArea = Math.max(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
                 i--;
@@ -56,7 +57,8 @@ public class LargestRectangleinHistogram {
         }
         return maxArea;
     }
-    //²»Ê¹ÓÃcollection£¬Ê¹ÓÃÊý×é´úÌæ ½ÚÊ¡Ê±¼ä
+
+    //ï¿½ï¿½Ê¹ï¿½ï¿½collectionï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ê¡Ê±ï¿½ï¿½
     public int largestRectangleArea3(int[] h) {
         int n = h.length;
         int max = 0;
@@ -73,7 +75,8 @@ public class LargestRectangleinHistogram {
         }
         return max;
     }
+
     public static void main(String[] args) {
-        System.out.print(largestRectangleArea2(new int[]{2,1,5,6,2,3}));
+        System.out.print(largestRectangleArea2(new int[]{2, 1, 5, 6, 2, 3}));
     }
 }

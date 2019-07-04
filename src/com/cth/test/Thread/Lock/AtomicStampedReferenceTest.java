@@ -16,19 +16,19 @@ public class AtomicStampedReferenceTest {
             new Thread() {
                 public void run() {
 //                    while (true) {
-                        while (true) {
-                            Integer m = money.getReference();
-                            if (m < 20) {
-                                if (money.compareAndSet(m, m + 20, timestamp,
-                                        timestamp + 1)) {
-                                    System.out.println("充值成功，余额:"
-                                            + money.getReference());
-                                    break;
-                                }
-                            } else {
+                    while (true) {
+                        Integer m = money.getReference();
+                        if (m < 20) {
+                            if (money.compareAndSet(m, m + 20, timestamp,
+                                    timestamp + 1)) {
+                                System.out.println("充值成功，余额:"
+                                        + money.getReference());
                                 break;
                             }
+                        } else {
+                            break;
                         }
+                    }
 //                    }
                 }
             }.start();

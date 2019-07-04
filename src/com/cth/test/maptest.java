@@ -10,12 +10,12 @@ import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class maptest {
-	public static void mian(String[] args) {
-		Hashtable<Integer, Integer> tHashtable=new Hashtable<>();
-		ConcurrentHashMap<Integer, Integer> cmap=new ConcurrentHashMap<>();
-		Set<Integer> set=new HashSet<>();
-		List<Integer> list=new ArrayList<>();
-		List<Integer> list2=new LinkedList<>();
-		List<Integer> list3=new Vector<>();
-	}
+    public static void mian(String[] args) {
+        Hashtable<Integer, Integer> tHashtable = new Hashtable<>();
+        ConcurrentHashMap<Integer, Integer> cmap = new ConcurrentHashMap<>();
+        Set<Integer> set = new HashSet<>();
+        List<Integer> list = new ArrayList<>();
+        List<Integer> list2 = new LinkedList<>();
+        List<Integer> list3 = new Vector<>();
+    }
 }

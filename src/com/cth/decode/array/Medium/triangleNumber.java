@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Created by SherlockTHao on 2017/8/2.
  */
 public class triangleNumber {
-    //½â·¨1Ê±¼ä¸´ÔÓ¶ÈÌ«¸ßTMLÁË
+    //ï¿½â·¨1Ê±ï¿½ä¸´ï¿½Ó¶ï¿½Ì«ï¿½ï¿½TMLï¿½ï¿½
     public static int triangleNumber(int[] nums) {
         int[] count = {0};
         List<Integer> list = new ArrayList<>();
@@ -46,7 +46,7 @@ public class triangleNumber {
         return true;
     }
 
-    //½â·¨2¶þ²æËÑË÷×îºóÒ»¸öÖµ
+    //ï¿½â·¨2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Öµ
     public static int triangleNumber2(int[] nums) {
         Arrays.sort(nums);
         int res = 0;
@@ -71,22 +71,21 @@ public class triangleNumber {
         return end;
     }
 
-    //½â·¨3
+    //ï¿½â·¨3
     public static int triangleNumber3(int[] nums) {
         Arrays.sort(nums);
         int res = 0;
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
-                int tem=j+1;
-                for(int k=tem;k<nums.length;k++){
-                    if(nums[k]<nums[i]+nums[j]){
+                int tem = j + 1;
+                for (int k = tem; k < nums.length; k++) {
+                    if (nums[k] < nums[i] + nums[j]) {
                         tem++;
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
-                res+=tem-j-1;
+                res += tem - j - 1;
             }
         }
         return res;

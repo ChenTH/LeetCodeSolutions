@@ -3,6 +3,7 @@ package com.cth.interview.huawei;
 /**
  * Created by SherlockTHao on 2017/8/16.
  */
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,53 +11,54 @@ import java.util.regex.Pattern;
 public class problem1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        String input=null;
-        if(in.hasNext()){
-            input=in.nextLine();
-        }
-        else {
+        String input = null;
+        if (in.hasNext()) {
+            input = in.nextLine();
+        } else {
             System.out.print(-1);
         }
-        //½ÓÊÕÊý
-        String[] vals=input.split("\\s+");
-        //È¥µô×îºóµÄ/0
-        String a=vals[0];
-        String b=vals[1];
-        //³¤¶ÈÆ¥Åä
-        if(a.length()!=b.length()){
-            System.out.print(-1);
-            return;
-        }
-        //·ÇÊý×Ö
-        if(!isNumeric(a)|| !isNumeric(b)){
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        String[] vals = input.split("\\s+");
+        //È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/0
+        String a = vals[0];
+        String b = vals[1];
+        //ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½
+        if (a.length() != b.length()) {
             System.out.print(-1);
             return;
         }
-        //ÕÒÁ¬ÐøÏàÍ¬
-        System.out.print(findLongest(a,b));
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (!isNumeric(a) || !isNumeric(b)) {
+            System.out.print(-1);
+            return;
+        }
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬
+        System.out.print(findLongest(a, b));
     }
+
     public static int findLongest(String A, String B) {
-        char[] achars=A.toCharArray();
-        char[] bcahrs=B.toCharArray();
-        int max=-1;
-        int i=0;
-        while(i<A.length()){
-            int tmp=0;
-            while (i<A.length()&&achars[i]==bcahrs[i]){
+        char[] achars = A.toCharArray();
+        char[] bcahrs = B.toCharArray();
+        int max = -1;
+        int i = 0;
+        while (i < A.length()) {
+            int tmp = 0;
+            while (i < A.length() && achars[i] == bcahrs[i]) {
                 i++;
                 tmp++;
             }
-            if(tmp>max){
-                max=tmp;
+            if (tmp > max) {
+                max = tmp;
             }
             i++;
         }
         return max;
     }
-    public static boolean isNumeric(String str){
+
+    public static boolean isNumeric(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");
         Matcher isNum = pattern.matcher(str);
-        if( !isNum.matches() ){
+        if (!isNum.matches()) {
             return false;
         }
         return true;

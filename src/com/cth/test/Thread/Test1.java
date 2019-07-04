@@ -4,19 +4,13 @@ package com.cth.test.Thread;
  * Created by SherlockTHao on 2017/5/26.
  */
 
-public class Test1 extends Thread
-{
+public class Test1 extends Thread {
     @Override
-    public void run()
-    {
-        while (true)
-        {
-            try
-            {
+    public void run() {
+        while (true) {
+            try {
                 Thread.sleep(2000);
-            }
-            catch (InterruptedException e)
-            {
+            } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -24,8 +18,7 @@ public class Test1 extends Thread
         }
     }
 
-    public static void main(String[] args) throws InterruptedException
-    {
+    public static void main(String[] args) throws InterruptedException {
         Thread t = new Test1();
         t.start();
         Thread.sleep(5000);

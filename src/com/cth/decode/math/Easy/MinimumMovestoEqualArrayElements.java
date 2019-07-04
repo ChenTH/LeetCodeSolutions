@@ -2,36 +2,36 @@ package com.cth.decode.math.Easy;
 
 public class MinimumMovestoEqualArrayElements {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] nums={1,2147483647};
-		System.out.println(minMoves3(nums));
-	}
-    public static int minMoves(int[] nums) {//ÓÐ2147483647Ê±ÎÞ½â
-        boolean flag=true;
-        int count=0;
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        int[] nums = {1, 2147483647};
+        System.out.println(minMoves3(nums));
+    }
+
+    public static int minMoves(int[] nums) {//ï¿½ï¿½2147483647Ê±ï¿½Þ½ï¿½
+        boolean flag = true;
+        int count = 0;
         while (flag) {
-        	flag=false;
-        	int maxIndex=0;
-			for (int i = 1; i < nums.length; i++) {
-				if(nums[i]>nums[maxIndex]){
-					flag=true;
-					nums[maxIndex]++;
-					maxIndex=i;
-				}
-				else if (nums[i]==nums[maxIndex]) {
-					nums[maxIndex]++;
-					maxIndex=i;
-				}
-				else {
-					nums[i]++;
-				}
-			}
-			count++;
-		}
+            flag = false;
+            int maxIndex = 0;
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] > nums[maxIndex]) {
+                    flag = true;
+                    nums[maxIndex]++;
+                    maxIndex = i;
+                } else if (nums[i] == nums[maxIndex]) {
+                    nums[maxIndex]++;
+                    maxIndex = i;
+                } else {
+                    nums[i]++;
+                }
+            }
+            count++;
+        }
         return --count;
     }
-    public int minMoves2(int[] nums) {//ÎªÒ»¸öÊýÖ®ÍâµÄÆäËûÊý¼ÓÒ»Ïàµ±ÓÚÎªÕâ¸öÊý¼õÒ»¡£
+
+    public int minMoves2(int[] nums) {//ÎªÒ»ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½àµ±ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
         if (nums.length == 0) return 0;
         int min = nums[0];
         for (int n : nums) min = Math.min(min, n);
@@ -39,32 +39,33 @@ public class MinimumMovestoEqualArrayElements {
         for (int n : nums) res += n - min;
         return res;
     }
+
     public static int minMoves3(int[] nums) {
-        int count=0;
+        int count = 0;
         while (judgeEqual(nums)) {
-        	int maxIndex=0;
-			for (int i = 1; i < nums.length; i++) {
-				if(nums[i]>nums[maxIndex]){
-					nums[maxIndex]++;
-					maxIndex=i;
-				}
-				else {
-					nums[i]++;
-				}
-			}
-			count++;
-		}
+            int maxIndex = 0;
+            for (int i = 1; i < nums.length; i++) {
+                if (nums[i] > nums[maxIndex]) {
+                    nums[maxIndex]++;
+                    maxIndex = i;
+                } else {
+                    nums[i]++;
+                }
+            }
+            count++;
+        }
         return count;
     }
+
     public static boolean judgeEqual(int[] nums) {
-        boolean flag=false;
-        int maxIndex=0;
-		for (int i = 1; i < nums.length; i++) {
-			if(nums[i]!=nums[maxIndex]){
-				flag=true;
-				break;
-			}
-		}
-		return flag;
-	}
+        boolean flag = false;
+        int maxIndex = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[maxIndex]) {
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
 }

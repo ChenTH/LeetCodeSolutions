@@ -16,9 +16,9 @@ public class ReverseStringII {
             if ((i + 1) * k - 1 < s.length()) {
                 reverse(sc, i * k, (i + 1) * k - 1);
             } else {
-                reverse(sc, i * k, s.length()-1);
+                reverse(sc, i * k, s.length() - 1);
             }
-            i+=2;
+            i += 2;
         }
         return new String(sc);
     }

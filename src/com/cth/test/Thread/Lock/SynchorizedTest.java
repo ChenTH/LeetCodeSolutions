@@ -3,8 +3,9 @@ package com.cth.test.Thread.Lock;
 /**
  * Created by SherlockTHao on 2017/5/26.
  */
-public class SynchorizedTest extends Father implements Runnable{
+public class SynchorizedTest extends Father implements Runnable {
     final static SynchorizedTest child = new SynchorizedTest();//为了保证锁唯一
+
     public static void main(String[] args) {
         for (int i = 0; i < 50; i++) {
             new Thread(child).start();
@@ -26,6 +27,7 @@ public class SynchorizedTest extends Father implements Runnable{
         child.doSomething();
     }
 }
+
 class Father {
     public synchronized void doSomething() {
         System.out.println("2father.doSomething()");

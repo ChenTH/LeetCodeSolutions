@@ -1,4 +1,5 @@
 package com.cth.test;
+
 import java.util.*;
 
 /**
@@ -8,11 +9,11 @@ import java.util.*;
 public class slution {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int count=in.nextInt();
-        Set<String> set=new HashSet<String>();
-        for(int i=0;i<count;i++){
-            String str=in.nextLine();
-            char[] chars=str.toCharArray();
+        int count = in.nextInt();
+        Set<String> set = new HashSet<String>();
+        for (int i = 0; i < count; i++) {
+            String str = in.nextLine();
+            char[] chars = str.toCharArray();
             Arrays.sort(chars);
             set.add(chars.toString());
         }

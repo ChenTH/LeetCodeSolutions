@@ -7,14 +7,15 @@ import com.cth.decode.tree.util.TreeNode;
  */
 public class ValidateBinarySearchTree {
     //    boolean flag=true;
-    public static void main(String[] args){
-        TreeNode node1=new TreeNode(2);
-        TreeNode node2=new TreeNode(1);
-        TreeNode node3=new TreeNode(3);
-        node1.left=node2;
-        node1.right=node3;
+    public static void main(String[] args) {
+        TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(1);
+        TreeNode node3 = new TreeNode(3);
+        node1.left = node2;
+        node1.right = node3;
         isValidBST(node1);
     }
+
     public static boolean isValidBST(TreeNode root) {
         return isVaild(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }

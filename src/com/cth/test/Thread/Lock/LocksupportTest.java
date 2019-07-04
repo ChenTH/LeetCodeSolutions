@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class LocksupportTest {
     static Object u = new Object();
-    static ReentrantLock lock=new ReentrantLock();
+    static ReentrantLock lock = new ReentrantLock();
     static TestSuspendThread t1 = new TestSuspendThread("t1");
     static TestSuspendThread t2 = new TestSuspendThread("t2");
 
@@ -21,10 +21,10 @@ public class LocksupportTest {
         @Override
         public void run() {
             lock.lock();
-                System.out.println("in " + getName());
-                //Thread.currentThread().suspend();
-                LockSupport.park();
-                System.out.println("out " + getName());
+            System.out.println("in " + getName());
+            //Thread.currentThread().suspend();
+            LockSupport.park();
+            System.out.println("out " + getName());
             lock.unlock();
         }
     }

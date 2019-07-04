@@ -7,27 +7,27 @@ import java.io.IOException;
 
 public class ReadFile {
 
-	// 参数string为你的文件名
-	public static String readFileContent(String fileName) throws IOException {
+    // 参数string为你的文件名
+    public static String readFileContent(String fileName) throws IOException {
 
-		File file = new File(fileName);
+        File file = new File(fileName);
 
-		BufferedReader bf = new BufferedReader(new FileReader(file));
+        BufferedReader bf = new BufferedReader(new FileReader(file));
 
-		String content = "";
-		StringBuilder sb = new StringBuilder();
+        String content = "";
+        StringBuilder sb = new StringBuilder();
 
-		while (content != null) {
-			content = bf.readLine();
+        while (content != null) {
+            content = bf.readLine();
 
-			if (content == null) {
-				break;
-			}
+            if (content == null) {
+                break;
+            }
 
-			sb.append(content.trim());
-		}
+            sb.append(content.trim());
+        }
 
-		bf.close();
-		return sb.toString();
-	}
+        bf.close();
+        return sb.toString();
+    }
 }

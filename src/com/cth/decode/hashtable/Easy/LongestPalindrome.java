@@ -7,12 +7,13 @@ import org.w3c.dom.CDATASection;
 
 public class LongestPalindrome {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String aString="abccccdd";
-		longestPalindrome(aString);
-	}
-//    public static int longestPalindrome(String s) {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        String aString = "abccccdd";
+        longestPalindrome(aString);
+    }
+
+    //    public static int longestPalindrome(String s) {
 //    	int result=0;
 //    	char[] cs=s.toCharArray();
 //    	for(int i=0;i<s.length();i++){
@@ -33,29 +34,28 @@ public class LongestPalindrome {
 //    	}
 //    	return result;
 //    }
-	public static int longestPalindrome(String s) {
-    	int result=0;
-		char[] cs=s.toCharArray();
-		Map<Character, Integer> map=new HashMap<>();
-		for(int i=0;i<cs.length;i++){
-			if(map.containsKey(cs[i])){
-				map.put(cs[i], map.get(cs[i])+1);
-			}
-			else {
-				map.put(cs[i], 1);
-			}
-		}
-		boolean odd=false;
-		for(char key : map.keySet()){
-			result+=map.get(key)/2;
-			if(map.get(key)%2==1){
-				odd=true;
-			}
-		}
-		result*=2;
-		if(odd){
-			result++;
-		}
-		return result;
-	}
+    public static int longestPalindrome(String s) {
+        int result = 0;
+        char[] cs = s.toCharArray();
+        Map<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < cs.length; i++) {
+            if (map.containsKey(cs[i])) {
+                map.put(cs[i], map.get(cs[i]) + 1);
+            } else {
+                map.put(cs[i], 1);
+            }
+        }
+        boolean odd = false;
+        for (char key : map.keySet()) {
+            result += map.get(key) / 2;
+            if (map.get(key) % 2 == 1) {
+                odd = true;
+            }
+        }
+        result *= 2;
+        if (odd) {
+            result++;
+        }
+        return result;
+    }
 }

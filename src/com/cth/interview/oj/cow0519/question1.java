@@ -11,7 +11,7 @@ public class question1 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        if(n==0){
+        if (n == 0) {
             System.out.print(0);
         }
         List<Integer> list = new ArrayList<>();

@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by SherlockTHao on 2017/8/5.
  */
 public class ArrayNesting {
-    //解法1
+    //锟解法1
     public static int arrayNesting(int[] nums) {
         int[] counts = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -30,17 +30,17 @@ public class ArrayNesting {
         return result;
     }
 
-    //解法2
+    //锟解法2
     public static int arrayNesting2(int[] nums) {
-        int maxCount=0;
-        for(int i=0;i<nums.length;i++){
-            int size=0;
-            for(int j=i;nums[j]>-1;size++){
-                int tmp=nums[j];
-                nums[j]=-1;
-                j=tmp;
+        int maxCount = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int size = 0;
+            for (int j = i; nums[j] > -1; size++) {
+                int tmp = nums[j];
+                nums[j] = -1;
+                j = tmp;
             }
-            maxCount=Integer.max(maxCount,size);
+            maxCount = Integer.max(maxCount, size);
         }
         return maxCount;
     }

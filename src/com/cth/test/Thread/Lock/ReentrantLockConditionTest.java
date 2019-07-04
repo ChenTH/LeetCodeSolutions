@@ -3,35 +3,28 @@ package com.cth.test.Thread.Lock;
 /**
  * Created by SherlockTHao on 2017/5/26.
  */
+
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ReentrantLockConditionTest implements Runnable
-{
+public class ReentrantLockConditionTest implements Runnable {
     public static ReentrantLock lock = new ReentrantLock();
     public static Condition condition = lock.newCondition();
 
     @Override
-    public void run()
-    {
-        try
-        {
+    public void run() {
+        try {
             lock.lock();
             condition.await();
             System.out.println("Thread is going on");
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
-        }
-        finally
-        {
+        } finally {
             lock.unlock();
         }
     }
 
-    public static void main(String[] args) throws InterruptedException
-    {
+    public static void main(String[] args) throws InterruptedException {
         ReentrantLockConditionTest t = new ReentrantLockConditionTest();
         Thread thread = new Thread(t);
         thread.start();

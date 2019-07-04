@@ -18,7 +18,7 @@ public class SuspendTest {
             synchronized (u) {
                 System.out.println("in " + getName());
                 Thread.currentThread().suspend();
-                System.out.println("out "+getName());
+                System.out.println("out " + getName());
             }
         }
     }

@@ -6,10 +6,11 @@ package com.cth.interview.alibaba;
 
 import java.lang.reflect.Array;
 import java.util.Scanner;
+
 public class problem1 {
-/** ÇëÍê³ÉÏÂÃæÕâ¸öprocessº¯Êý£¬ÊµÏÖÌâÄ¿ÒªÇóµÄ¹¦ÄÜ **/
+/** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½processï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½Ä¿Òªï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ **/
     /**
-     * µ±È»£¬ÄãÒ²¿ÉÒÔ²»°´ÕÕÕâ¸öÄ£°åÀ´×÷´ð£¬ÍêÈ«°´ÕÕ×Ô¼ºµÄÏë·¨À´ ^-^
+     * ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ë·¨ï¿½ï¿½ ^-^
      **/
     static class boxTemplate {
         public static int price;
@@ -17,12 +18,15 @@ public class problem1 {
         public static int width;
         public static int height;
     }
+
     static class Model {
-        public  int price;
-        public  int length;
-        public  int width;
-        public  int height;
+        public int price;
+        public int length;
+        public int width;
+        public int height;
+
     }
+
     private static int process() {
         return 1;
     }
@@ -30,7 +34,6 @@ public class problem1 {
     public static void main(String args[]) {
         Scanner scanner = new Scanner(System.in);
         boxTemplate.price = 2000;
-
         while (scanner.hasNext()) {
             boxTemplate.length = scanner.nextInt();
             boxTemplate.width = scanner.nextInt();

@@ -2,11 +2,12 @@ package com.cth.decode.math.Medium;
 
 public class ValidPerfectSquare {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
 
-	}
-    public boolean isPerfectSquare(int num) {//Æ½·½ÊıÊÇ1+3+5+7+9+....
+    }
+
+    public boolean isPerfectSquare(int num) {//Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1+3+5+7+9+....
         int i = 1;
         while (num > 0) {
             num -= i;

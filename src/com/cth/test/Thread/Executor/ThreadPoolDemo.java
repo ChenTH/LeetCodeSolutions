@@ -3,10 +3,12 @@ package com.cth.test.Thread.Executor;
 /**
  * Created by SherlockTHao on 2017/5/26.
  */
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+
 public class ThreadPoolDemo {
     public static class MyTask implements Runnable {
         @Override
@@ -29,7 +31,8 @@ public class ThreadPoolDemo {
         }
         secheduleExecutorServiceTest();
     }
-    public static void secheduleExecutorServiceTest(){
+
+    public static void secheduleExecutorServiceTest() {
         ScheduledExecutorService ses = Executors.newScheduledThreadPool(10);
         //如果前面的任务还未完成，则调度不会启动。
         ses.scheduleWithFixedDelay(new Runnable() {
@@ -38,7 +41,7 @@ public class ThreadPoolDemo {
             public void run() {
                 try {
                     Thread.sleep(1000);
-                    System.out.println(System.currentTimeMillis()/1000);
+                    System.out.println(System.currentTimeMillis() / 1000);
                 } catch (Exception e) {
                     // TODO: handle exception
                 }

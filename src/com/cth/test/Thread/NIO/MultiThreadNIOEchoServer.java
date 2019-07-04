@@ -3,6 +3,7 @@ package com.cth.test.Thread.NIO;
 /**
  * Created by SherlockTHao on 2017/5/26.
  */
+
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -72,7 +73,7 @@ public class MultiThreadNIOEchoServer {
         ssc.socket().bind(isa);
         // 注册感兴趣的事件，此处对accpet事件感兴趣
         SelectionKey acceptKey = ssc.register(selector, SelectionKey.OP_ACCEPT);
-        for (;;) {
+        for (; ; ) {
             selector.select();
             Set readyKeys = selector.selectedKeys();
             Iterator i = readyKeys.iterator();

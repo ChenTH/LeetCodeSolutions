@@ -6,12 +6,13 @@ import java.util.Stack;
 
 public class ReverseVowelsofaString {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String string="leetcode";
-		System.out.println(reverseVowels(string));
-	}
-//    public static String reverseVowels(String s) {//反转相邻的
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        String string = "leetcode";
+        System.out.println(reverseVowels(string));
+    }
+
+    //    public static String reverseVowels(String s) {//反转相邻的
 //    	if(s==null || s.length()==0){return s;};
 //    	ArrayList<Character> arr=new ArrayList<>();
 //    	int a=-1;
@@ -59,50 +60,49 @@ public class ReverseVowelsofaString {
 //		 }
 //		return result;
 //	 }
-	 public static String reverseVowels(String s) {
-		 if(s==null || s.length()==0){return s;};
-		 //HashMap<Integer, Character> map=new HashMap<>();
-		 int bef=0;
-		 int last=s.length()-1;
-		 char[] ss=new char[s.length()];
-		 while(true){
-			 for(int i=bef;i<=last;i++){
-				 bef=i;
-				 if(isVowels(s.charAt(i))){
-					 break;
-				 }
-				 else {
-					 ss[i]=s.charAt(i);
-					//map.put(i, s.charAt(i));
-				}
-			 }
-			 for(int i=last;i>=bef;i--){
-				 last=i;
-				 if(isVowels(s.charAt(i))){
-					 break;
-				 }
-				 else {
-					 ss[i]=s.charAt(i);
-					 //map.put(i, s.charAt(i));
-				}
-			 }
-			 if(bef<last){
-				 ss[bef]=s.charAt(last);
-				 ss[last]=s.charAt(bef);
-				 //map.put(bef, s.charAt(last));
-				 //map.put(last, s.charAt(bef));
-				 bef=bef+1;
-				 last=last-1; 
-			 }
-			 else if(bef==last){
-				 ss[bef]=s.charAt(bef);
-				 //map.put(bef, s.charAt(bef));
-				 break;
-			}
-			 else {
-				break;
-			}
-		 }
+    public static String reverseVowels(String s) {
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        ;
+        //HashMap<Integer, Character> map=new HashMap<>();
+        int bef = 0;
+        int last = s.length() - 1;
+        char[] ss = new char[s.length()];
+        while (true) {
+            for (int i = bef; i <= last; i++) {
+                bef = i;
+                if (isVowels(s.charAt(i))) {
+                    break;
+                } else {
+                    ss[i] = s.charAt(i);
+                    //map.put(i, s.charAt(i));
+                }
+            }
+            for (int i = last; i >= bef; i--) {
+                last = i;
+                if (isVowels(s.charAt(i))) {
+                    break;
+                } else {
+                    ss[i] = s.charAt(i);
+                    //map.put(i, s.charAt(i));
+                }
+            }
+            if (bef < last) {
+                ss[bef] = s.charAt(last);
+                ss[last] = s.charAt(bef);
+                //map.put(bef, s.charAt(last));
+                //map.put(last, s.charAt(bef));
+                bef = bef + 1;
+                last = last - 1;
+            } else if (bef == last) {
+                ss[bef] = s.charAt(bef);
+                //map.put(bef, s.charAt(bef));
+                break;
+            } else {
+                break;
+            }
+        }
 //		 String result="";
 //		 for(int i=0;i<s.length();i++){
 //			 result=result+map.get(i);
@@ -114,13 +114,14 @@ public class ReverseVowelsofaString {
 //		 for(int i=0;i<s.length();i++){
 //		 sBuilder.append(map.get(i));
 //		 }
-		return new String(ss);
-	 }
+        return new String(ss);
+    }
+
     public static boolean isVowels(char a) {
-    	if(a=='a'||a=='e'||a=='i'||a=='o'||a=='u'||a=='A'||a=='E'||a=='I'||a=='O'||a=='U'){
-    		return true;
-    	}
-		return false;
-		
-	}
+        if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u' || a == 'A' || a == 'E' || a == 'I' || a == 'O' || a == 'U') {
+            return true;
+        }
+        return false;
+
+    }
 }

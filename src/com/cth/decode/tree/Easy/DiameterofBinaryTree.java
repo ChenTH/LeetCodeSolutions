@@ -10,15 +10,15 @@ public class DiameterofBinaryTree {
 
     public int diameterOfBinaryTree(TreeNode root) {
         if (root == null) return 0;
-        int[] max={0};
-        calDia(root,max);
+        int[] max = {0};
+        calDia(root, max);
         return max[0] - 1;
     }
 
-    public int calDia(TreeNode node,int[] max) {
+    public int calDia(TreeNode node, int[] max) {
         if (node == null) return 0;
-        int ll = calDia(node.left,max);
-        int rl = calDia(node.right,max);
+        int ll = calDia(node.left, max);
+        int rl = calDia(node.right, max);
         if (ll + rl + 1 > max[0]) {
             max[0] = ll + rl + 1;
         }

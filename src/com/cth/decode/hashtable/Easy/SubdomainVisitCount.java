@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class SubdomainVisitCount {
-    public static void main(String[] args){
-        String[] test={"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
+    public static void main(String[] args) {
+        String[] test = {"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"};
         System.out.println(subdomainVisits(test));
     }
+
     public static List<String> subdomainVisits(String[] cpdomains) {
         Map<String, Integer> map = new HashMap<>();
         for (String s : cpdomains) {
@@ -26,8 +27,8 @@ public class SubdomainVisitCount {
             }
         }
         List<String> result = new ArrayList<>();
-        for(String key:map.keySet()){
-            result.add(map.get(key)+" "+key);
+        for (String key : map.keySet()) {
+            result.add(map.get(key) + " " + key);
         }
         return result;
     }
